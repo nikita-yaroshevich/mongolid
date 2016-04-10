@@ -136,6 +136,16 @@
             "title": "Relations trait"
         }, 
         {
+            "location": "/api/", 
+            "text": "API Documentation\n\n\nGenerated API documentation for the library is available at:\n\n\nhttp://leroy-merlin-br.github.io/mongolid/api", 
+            "title": "API Documentation"
+        }, 
+        {
+            "location": "/api/#api-documentation", 
+            "text": "Generated API documentation for the library is available at:  http://leroy-merlin-br.github.io/mongolid/api", 
+            "title": "API Documentation"
+        }, 
+        {
             "location": "/troubleshooting/", 
             "text": "Troubleshooting\n\n\nPHP Fatal error: Class \nMongoDB\\Client\n not found in \n\n\nThe \nMongoDB\\Client\n class is contained in the \nnew\n MongoDB driver\n for PHP. \nHere is an installation guide\n. The driver is a PHP extension written in C and maintained by \nMongoDB\n. Mongolid and most other MongoDB PHP libraries utilize it in order to be fast and reliable.\n\n\nClass \nMongoDB\\Client\n not found in \n in CLI persists even with MongoDB driver installed.\n\n\nMake sure that the \nphp.ini\n file used in the CLI environment includes the MongoDB extension. In some systems, the default PHP installation uses different \n.ini\n files for the web and CLI environments.\n\n\nRun \nphp -i | grep 'Configuration File'\n in a terminal to check the \n.ini\n that is being used.\n\n\nTo check if PHP in the CLI environment is importing the driver properly run \nphp -i | grep 'mongo'\n in your terminal. You should get output similar to:\n\n\n$ php -i | grep 'mongo'\nmongodb support =\n enabled\nmongodb version =\n 1.1.3", 
             "title": "Troubleshooting"

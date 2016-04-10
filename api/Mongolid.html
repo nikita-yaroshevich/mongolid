@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Mongolid | Mongolid ODM Api</title>
+
+            <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="css/sami.css">
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/typeahead.min.js"></script>
+        <script src="sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
+
+    <body id="namespace" data-name="namespace:Mongolid" data-root-path="">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <form id="search-form" action="search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Mongolid ODM Api</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="classes.html">Classes</a></li>
+                                            <li><a href="namespaces.html">Namespaces</a></li>
+                                        <li><a href="interfaces.html">Interfaces</a></li>
+                    <li><a href="traits.html">Traits</a></li>
+                    <li><a href="doc-index.html">Index</a></li>
+                    <li><a href="search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                <div class="namespace-breadcrumbs">
+        <ol class="breadcrumb">
+            <li><span class="label label-default">Namespace</span></li>
+                                                        <li><a href="Mongolid.html">Mongolid</a></li>
+    
+        </ol>
+    </div>
+            <div id="page-content">
+                
+    <div class="page-header">
+        <h1>Mongolid</h1>
+    </div>
+
+            <h2>Namespaces</h2>
+        <div class="namespace-list">
+            <a href="Mongolid/Connection.html">Mongolid\Connection</a><a href="Mongolid/Container.html">Mongolid\Container</a><a href="Mongolid/Cursor.html">Mongolid\Cursor</a><a href="Mongolid/DataMapper.html">Mongolid\DataMapper</a><a href="Mongolid/Event.html">Mongolid\Event</a><a href="Mongolid/Model.html">Mongolid\Model</a><a href="Mongolid/Util.html">Mongolid\Util</a>        </div>
+    
+            <h2>Classes</h2>
+        
+    <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-6">
+                                            <a href="Mongolid/ActiveRecord.html"><abbr title="Mongolid\ActiveRecord">ActiveRecord</abbr></a>
+                                    </div>
+                <div class="col-md-6">
+                    The Mongolid\ActiveRecord base class will ensure to enable your entity to
+have methods to interact with the database. It means that 'save', 'insert',
+'update', 'where', 'first' and 'all' are available within every instance.
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <a href="Mongolid/DynamicSchema.html"><abbr title="Mongolid\DynamicSchema">DynamicSchema</abbr></a>
+                                    </div>
+                <div class="col-md-6">
+                    The DynamicSchema will accept additional fields that are not specified in
+the $schema property. This is usefull if you doesn't have a clear idea of how
+the document will look like
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <a href="Mongolid/Manager.html"><abbr title="Mongolid\Manager">Manager</abbr></a>
+                                    </div>
+                <div class="col-md-6">
+                    Wraps the Mongolid initialization. The main purpose of the Manager is to make
+it easy to use without any framework.
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <a href="Mongolid/Schema.html"><abbr title="Mongolid\Schema">Schema</abbr></a>
+                                    </div>
+                <div class="col-md-6">
+                    A schema maps to a MongoDB collection and defines the shape of the documents
+within that collection.
+                </div>
+            </div>
+            </div>
+    
+    
+    
+            </div>
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
+    </div>
+    </body>
+
+</html>

@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Mongolid\ActiveRecord | Mongolid ODM Api</title>
+
+            <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/sami.css">
+        <script src="../js/jquery-1.11.1.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/typeahead.min.js"></script>
+        <script src="../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
+
+    <body id="class" data-name="class:Mongolid_ActiveRecord" data-root-path="../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <form id="search-form" action="../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">Mongolid ODM Api</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../classes.html">Classes</a></li>
+                                            <li><a href="../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../interfaces.html">Interfaces</a></li>
+                    <li><a href="../traits.html">Traits</a></li>
+                    <li><a href="../doc-index.html">Index</a></li>
+                    <li><a href="../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                                                            <li><a href="../Mongolid.html">Mongolid</a></li>
+    
+                <li>ActiveRecord</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>ActiveRecord</h1>
+    </div>
+
+    <p>    class
+    <strong>ActiveRecord</strong>
+</p>
+
+            <div class="description">
+            <p>The Mongolid\ActiveRecord base class will ensure to enable your entity to
+have methods to interact with the database. It means that 'save', 'insert',
+'update', 'where', 'first' and 'all' are available within every instance.</p>            <p>The Mongolid\Schema that describes the entity will be generated on the go
+based on the $fields.</p>        </div>
+    
+            <h2>Traits</h2>
+
+        
+    <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-6">
+                                            <a href="../Mongolid/Model/Attributes.html"><abbr title="Mongolid\Model\Attributes">Attributes</abbr></a>
+                                    </div>
+                <div class="col-md-6">
+                    This trait adds attribute getter, setters and also a usefull
+<code>fill</code> method that can be used with $fillable and $guarded
+properties to make sure that only the correct attributes
+will be set.
+                </div>
+            </div>
+                    <div class="row">
+                <div class="col-md-6">
+                                            <a href="../Mongolid/Model/Relations.html"><abbr title="Mongolid\Model\Relations">Relations</abbr></a>
+                                    </div>
+                <div class="col-md-6">
+                    It is supossed to be used in model classes in general
+                </div>
+            </div>
+            </div>
+    
+    
+            <h2>Properties</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td class="type" id="property_collection">
+                                                                                
+    string
+                </td>
+                <td>$collection</td>
+                <td class="last">Name of the collection where this kind of Entity is going to be saved or
+retrieved from</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_dynamic">
+                                                                                
+    boolean
+                </td>
+                <td>$dynamic</td>
+                <td class="last">The $dynamic property tells if the object will accept additional fields
+that are not specified in the $fields property. This is usefull if you
+doesn't have a strict document format or if you want to take full
+advantage of the "schemaless" nature of MongoDB.</td>
+                <td></td>
+            </tr>
+            </table>
+
+    
+            <h2>Methods</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getAttribute">getAttribute</a>(
+    <abbr title="Mongolid\Model\string">string</abbr> $key)
+                                            <p>Get an attribute from the model.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../Mongolid/Model/Attributes.html#method_getAttribute"><abbr title="Mongolid\Model\Attributes">Attributes</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getAttributes">getAttributes</a>()
+                                            <p>Get all attributes from the model.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../Mongolid/Model/Attributes.html#method_getAttributes"><abbr title="Mongolid\Model\Attributes">Attributes</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_fill">fill</a>(
+    array $input)
+                                            <p>Set the model attributes using an array</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../Mongolid/Model/Attributes.html#method_fill"><abbr title="Mongolid\Model\Attributes">Attributes</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_cleanAttribute">cleanAttribute</a>(
+    <abbr title="Mongolid\Model\string">string</abbr> $key)
+                                            <p>Set a given attribute on the model.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../Mongolid/Model/Attributes.html#method_cleanAttribute"><abbr title="Mongolid\Model\Attributes">Attributes</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setAttribute">setAttribute</a>(
+    <abbr title="Mongolid\Model\string">string</abbr> $key, 
+    mixed $value)
+                                            <p>Set a given attribute on the model.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../Mongolid/Model/Attributes.html#method_setAttribute"><abbr title="Mongolid\Model\Attributes">Attributes</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    array
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_toArray">toArray</a>()
+                                            <p>Returns the model instance as an Array.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../Mongolid/Model/Attributes.html#method_toArray"><abbr title="Mongolid\Model\Attributes">Attributes</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___get">__get</a>(
+    mixed $key)
+                                            <p>Dynamically retrieve attributes on the model.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../Mongolid/Model/Attributes.html#method___get"><abbr title="Mongolid\Model\Attributes">Attributes</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___set">__set</a>(
+    mixed $key, 
+    mixed $value)
+                                            <p>Dynamically set attributes on the model.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../Mongolid/Model/Attributes.html#method___set"><abbr title="Mongolid\Model\Attributes">Attributes</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    boolean
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___isset">__isset</a>(
+    mixed $key)
+                                            <p>Determine if an attribute exists on the model.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../Mongolid/Model/Attributes.html#method___isset"><abbr title="Mongolid\Model\Attributes">Attributes</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___unset">__unset</a>(
+    mixed $key)
+                                            <p>Unset an attribute on the model.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../Mongolid/Model/Attributes.html#method___unset"><abbr title="Mongolid\Model\Attributes">Attributes</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_embed">embed</a>(
+    <abbr title="Mongolid\Model\string">string</abbr> $field, 
+    mixed $obj)
+                                            <p>Embed a new document to an attribute. It will also generate an
+_id for the document if it's not present.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../Mongolid/Model/Relations.html#method_embed"><abbr title="Mongolid\Model\Relations">Relations</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_unembed">unembed</a>(
+    <abbr title="Mongolid\Model\string">string</abbr> $field, 
+    mixed $obj)
+                                            <p>Removes an embedded document from the given field. It does that by using
+the _id of the given $obj.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../Mongolid/Model/Relations.html#method_unembed"><abbr title="Mongolid\Model\Relations">Relations</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_attach">attach</a>(
+    <abbr title="Mongolid\Model\string">string</abbr> $field, 
+    mixed $obj)
+                                            <p>Attach document _id reference to an attribute. It will also generate an
+_id for the document if it's not present.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../Mongolid/Model/Relations.html#method_attach"><abbr title="Mongolid\Model\Relations">Relations</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    void
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_detach">detach</a>(
+    <abbr title="Mongolid\Model\string">string</abbr> $field, 
+    mixed $obj)
+                                            <p>Removes a document _id reference from an attribute. It will remove the
+_id of the given $obj from inside the given $field.</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../Mongolid/Model/Relations.html#method_detach"><abbr title="Mongolid\Model\Relations">Relations</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    boolean
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_save">save</a>()
+                                            <p>Saves this object into database</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    boolean
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_insert">insert</a>()
+                                            <p>Insert this object into database</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    boolean
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_update">update</a>()
+                                            <p>Updates this object in database</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    boolean
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_delete">delete</a>()
+                                            <p>Deletes this object in database</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    <a href="../Mongolid/Cursor/Cursor.html"><abbr title="Mongolid\Cursor\Cursor">Cursor</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_where">where</a>(
+    array $query = array())
+                                            <p>Gets a cursor of this kind of entities that matches the query from the
+database</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    <a href="../Mongolid/Cursor/Cursor.html"><abbr title="Mongolid\Cursor\Cursor">Cursor</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_all">all</a>()
+                                            <p>Gets a cursor of this kind of entities from the database</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;
+    <a href="../Mongolid/ActiveRecord.html"><abbr title="Mongolid\ActiveRecord">ActiveRecord</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_first">first</a>(
+    array $query = array())
+                                            <p>Gets the first entity of this kind that matches the query</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___call">__call</a>(
+    mixed $method, 
+    mixed $parameters)
+                                            <p>Handle dynamic method calls into the model.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+    <abbr title="Mongolid\DataMapper\DataMapper">DataMapper</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getDataMapper">getDataMapper</a>()
+                                            <p>Returns a DataMapper configured with the Schema and collection described
+in this entity</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method_getAttribute">
+        <div class="location">in <a href="../Mongolid/Model/Attributes.html#method_getAttribute"><abbr title="Mongolid\Model\Attributes">Attributes</abbr></a> at line         line 52</div>
+        <code>                    
+    mixed
+    <strong>getAttribute</strong>(
+    <abbr title="Mongolid\Model\string">string</abbr> $key)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Get an attribute from the model.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    <abbr title="Mongolid\Model\string">string</abbr></td>
+                <td>$key</td>
+                <td>The attribute to be accessed.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getAttributes">
+        <div class="location">in <a href="../Mongolid/Model/Attributes.html#method_getAttributes"><abbr title="Mongolid\Model\Attributes">Attributes</abbr></a> at line         line 68</div>
+        <code>                    
+    mixed
+    <strong>getAttributes</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Get all attributes from the model.</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_fill">
+        <div class="location">in <a href="../Mongolid/Model/Attributes.html#method_fill"><abbr title="Mongolid\Model\Attributes">Attributes</abbr></a> at line         line 80</div>
+        <code>                    
+    void
+    <strong>fill</strong>(
+    array $input)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Set the model attributes using an array</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    array</td>
+                <td>$input</td>
+                <td>The data that will be used to fill the attributes.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_cleanAttribute">
+        <div class="location">in <a href="../Mongolid/Model/Attributes.html#method_cleanAttribute"><abbr title="Mongolid\Model\Attributes">Attributes</abbr></a> at line         line 96</div>
+        <code>                    
+    void
+    <strong>cleanAttribute</strong>(
+    <abbr title="Mongolid\Model\string">string</abbr> $key)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Set a given attribute on the model.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    <abbr title="Mongolid\Model\string">string</abbr></td>
+                <td>$key</td>
+                <td>Name of the attribute to be unset.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setAttribute">
+        <div class="location">in <a href="../Mongolid/Model/Attributes.html#method_setAttribute"><abbr title="Mongolid\Model\Attributes">Attributes</abbr></a> at line         line 109</div>
+        <code>                    
+    void
+    <strong>setAttribute</strong>(
+    <abbr title="Mongolid\Model\string">string</abbr> $key, 
+    mixed $value)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Set a given attribute on the model.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    <abbr title="Mongolid\Model\string">string</abbr></td>
+                <td>$key</td>
+                <td>Name of the atribute to be set.</td>
+            </tr>
+                    <tr>
+                <td>
+    mixed</td>
+                <td>$value</td>
+                <td>Value to be set.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_toArray">
+        <div class="location">in <a href="../Mongolid/Model/Attributes.html#method_toArray"><abbr title="Mongolid\Model\Attributes">Attributes</abbr></a> at line         line 119</div>
+        <code>                    
+    array
+    <strong>toArray</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Returns the model instance as an Array.</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    array</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___get">
+        <div class="location">in <a href="../Mongolid/Model/Attributes.html#method___get"><abbr title="Mongolid\Model\Attributes">Attributes</abbr></a> at line         line 131</div>
+        <code>                    
+    mixed
+    <strong>__get</strong>(
+    mixed $key)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Dynamically retrieve attributes on the model.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    mixed</td>
+                <td>$key</td>
+                <td>Name of the attribute.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___set">
+        <div class="location">in <a href="../Mongolid/Model/Attributes.html#method___set"><abbr title="Mongolid\Model\Attributes">Attributes</abbr></a> at line         line 143</div>
+        <code>                    
+    void
+    <strong>__set</strong>(
+    mixed $key, 
+    mixed $value)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Dynamically set attributes on the model.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    mixed</td>
+                <td>$key</td>
+                <td>Attribute name.</td>
+            </tr>
+                    <tr>
+                <td>
+    mixed</td>
+                <td>$value</td>
+                <td>Value to be set.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___isset">
+        <div class="location">in <a href="../Mongolid/Model/Attributes.html#method___isset"><abbr title="Mongolid\Model\Attributes">Attributes</abbr></a> at line         line 156</div>
+        <code>                    
+    boolean
+    <strong>__isset</strong>(
+    mixed $key)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Determine if an attribute exists on the model.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    mixed</td>
+                <td>$key</td>
+                <td>Attribute name.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    boolean</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___unset">
+        <div class="location">in <a href="../Mongolid/Model/Attributes.html#method___unset"><abbr title="Mongolid\Model\Attributes">Attributes</abbr></a> at line         line 167</div>
+        <code>                    
+    void
+    <strong>__unset</strong>(
+    mixed $key)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Unset an attribute on the model.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    mixed</td>
+                <td>$key</td>
+                <td>Attribute name.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_embed">
+        <div class="location">in <a href="../Mongolid/Model/Relations.html#method_embed"><abbr title="Mongolid\Model\Relations">Relations</abbr></a> at line         line 106</div>
+        <code>                    
+    void
+    <strong>embed</strong>(
+    <abbr title="Mongolid\Model\string">string</abbr> $field, 
+    mixed $obj)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Embed a new document to an attribute. It will also generate an
+_id for the document if it's not present.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    <abbr title="Mongolid\Model\string">string</abbr></td>
+                <td>$field</td>
+                <td>Field to where the $obj will be embedded.</td>
+            </tr>
+                    <tr>
+                <td>
+    mixed</td>
+                <td>$obj</td>
+                <td>Document or model instance.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_unembed">
+        <div class="location">in <a href="../Mongolid/Model/Relations.html#method_unembed"><abbr title="Mongolid\Model\Relations">Relations</abbr></a> at line         line 121</div>
+        <code>                    
+    void
+    <strong>unembed</strong>(
+    <abbr title="Mongolid\Model\string">string</abbr> $field, 
+    mixed $obj)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Removes an embedded document from the given field. It does that by using
+the _id of the given $obj.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    <abbr title="Mongolid\Model\string">string</abbr></td>
+                <td>$field</td>
+                <td>Name of the field where the $obj is embeded.</td>
+            </tr>
+                    <tr>
+                <td>
+    mixed</td>
+                <td>$obj</td>
+                <td>Document, model instance or _id.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_attach">
+        <div class="location">in <a href="../Mongolid/Model/Relations.html#method_attach"><abbr title="Mongolid\Model\Relations">Relations</abbr></a> at line         line 136</div>
+        <code>                    
+    void
+    <strong>attach</strong>(
+    <abbr title="Mongolid\Model\string">string</abbr> $field, 
+    mixed $obj)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Attach document _id reference to an attribute. It will also generate an
+_id for the document if it's not present.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    <abbr title="Mongolid\Model\string">string</abbr></td>
+                <td>$field</td>
+                <td>Name of the field where the reference will be stored.</td>
+            </tr>
+                    <tr>
+                <td>
+    mixed</td>
+                <td>$obj</td>
+                <td>Document, model instance or _id to be referenced.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_detach">
+        <div class="location">in <a href="../Mongolid/Model/Relations.html#method_detach"><abbr title="Mongolid\Model\Relations">Relations</abbr></a> at line         line 151</div>
+        <code>                    
+    void
+    <strong>detach</strong>(
+    <abbr title="Mongolid\Model\string">string</abbr> $field, 
+    mixed $obj)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Removes a document _id reference from an attribute. It will remove the
+_id of the given $obj from inside the given $field.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    <abbr title="Mongolid\Model\string">string</abbr></td>
+                <td>$field</td>
+                <td>Field where the reference is stored.</td>
+            </tr>
+                    <tr>
+                <td>
+    mixed</td>
+                <td>$obj</td>
+                <td>Document, model instance or _id that have been referenced by $field.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    void</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_save">
+        <div class="location">at line         line 56</div>
+        <code>                    
+    boolean
+    <strong>save</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Saves this object into database</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    boolean</td>
+            <td>Success</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_insert">
+        <div class="location">at line         line 66</div>
+        <code>                    
+    boolean
+    <strong>insert</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Insert this object into database</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    boolean</td>
+            <td>Success</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_update">
+        <div class="location">at line         line 76</div>
+        <code>                    
+    boolean
+    <strong>update</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Updates this object in database</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    boolean</td>
+            <td>Success</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_delete">
+        <div class="location">at line         line 86</div>
+        <code>                    
+    boolean
+    <strong>delete</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Deletes this object in database</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    boolean</td>
+            <td>Success</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_where">
+        <div class="location">at line         line 99</div>
+        <code>        static            
+    <a href="../Mongolid/Cursor/Cursor.html"><abbr title="Mongolid\Cursor\Cursor">Cursor</abbr></a>
+    <strong>where</strong>(
+    array $query = array())</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Gets a cursor of this kind of entities that matches the query from the
+database</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    array</td>
+                <td>$query</td>
+                <td>MongoDB selection criteria.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <a href="../Mongolid/Cursor/Cursor.html"><abbr title="Mongolid\Cursor\Cursor">Cursor</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_all">
+        <div class="location">at line         line 110</div>
+        <code>        static            
+    <a href="../Mongolid/Cursor/Cursor.html"><abbr title="Mongolid\Cursor\Cursor">Cursor</abbr></a>
+    <strong>all</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Gets a cursor of this kind of entities from the database</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <a href="../Mongolid/Cursor/Cursor.html"><abbr title="Mongolid\Cursor\Cursor">Cursor</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_first">
+        <div class="location">at line         line 123</div>
+        <code>        static            
+    <a href="../Mongolid/ActiveRecord.html"><abbr title="Mongolid\ActiveRecord">ActiveRecord</abbr></a>
+    <strong>first</strong>(
+    array $query = array())</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Gets the first entity of this kind that matches the query</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    array</td>
+                <td>$query</td>
+                <td>MongoDB selection criteria.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <a href="../Mongolid/ActiveRecord.html"><abbr title="Mongolid\ActiveRecord">ActiveRecord</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method___call">
+        <div class="location">at line         line 138</div>
+        <code>                    
+    mixed
+    <strong>__call</strong>(
+    mixed $method, 
+    mixed $parameters)</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Handle dynamic method calls into the model.</p>                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>
+    mixed</td>
+                <td>$method</td>
+                <td>Name of the method that is being called.</td>
+            </tr>
+                    <tr>
+                <td>
+    mixed</td>
+                <td>$parameters</td>
+                <td>Parameters of $method.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getDataMapper">
+        <div class="location">at line         line 167</div>
+        <code>                    
+    <abbr title="Mongolid\DataMapper\DataMapper">DataMapper</abbr>
+    <strong>getDataMapper</strong>()</code>
+    </h3>
+    <div class="details">
+                    <div class="method-description">
+                                    <p>Returns a DataMapper configured with the Schema and collection described
+in this entity</p>                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>
+    <abbr title="Mongolid\DataMapper\DataMapper">DataMapper</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+            </div>
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
+    </div>
+    </body>
+
+</html>

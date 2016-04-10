@@ -35,6 +35,14 @@
 
     
     <url>
+     <loc>http://leroy-merlin-br.github.io/mongolid/api/</loc>
+     <lastmod>2016-04-10</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
      <loc>http://leroy-merlin-br.github.io/mongolid/troubleshooting/</loc>
      <lastmod>2016-04-10</lastmod>
      <changefreq>daily</changefreq>
