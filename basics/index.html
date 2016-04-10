@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Basics - Mongolid ODM</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Basics";
+    var mkdocs_page_input_path = "basics.md";
+    var mkdocs_page_url = "/basics/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Mongolid ODM</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Basics</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#installation">Installation</a></li>
+                
+                    <li><a class="toctree-l4" href="#requirements">Requirements</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#setup">Setup</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#basic-usage">Basic Usage</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#monglid-cursor">Monglid Cursor</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#insert-update-delete">Insert, Update, Delete</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#mass-assignment">Mass Assignment</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#converting-to-arrays-json">Converting To Arrays / JSON</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../relationships/">Relationships</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../datamapper/">DataMapper Pattern</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../troubleshooting/">Troubleshooting</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../info/">Additional information</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Mongolid ODM</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Basics</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/leroy-merlin-br/mongolid" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<p>You can install library through Composer:</p>
+<pre><code>$ composer require leroy-merlin-br/mongolid
+</code></pre>
+
+<h3 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>PHP<strong>7</strong></li>
+<li><a href="http://php.net/manual/en/set.mongodb.php">MongoDB Driver</a></li>
+</ul>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
+<p>If you are not using Laravel, you should initialize the Mongolid connection pool and container manually.
+The minimalistic way of doing it is to use <code>Mongolid\Manager</code>:</p>
+<pre><code class="php">&lt;?php
+require 'vendor/autoload.php';
+
+use Mongolid\Manager;
+use Mongolid\Connection;
+
+$manager = new Manager(new Connection('mongodb://localhost:27017'));
+</code></pre>
+
+<p>Now you are ready to create your own models :smile:</p>
+<h2 id="basic-usage">Basic Usage<a class="headerlink" href="#basic-usage" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>Note:</strong> Mongolid does support <a href="../datamapper/"><strong>DataMapper</strong> pattern</a>, but in order to understand it let&rsquo;s begin with the <strong>ActiveRecord</strong> pattern:</p>
+</blockquote>
+<pre><code class="php">class Post extends Mongolid\ActiveRecord {}
+</code></pre>
+
+<p>Note that we did not tell Mongolid which collection to use for our <code>Post</code> model. So, in this case, Mongolid <strong>will not save the model into the database</strong>. This can be used for models that represents objects that will be embedded within another object and will not have their own collection.</p>
+<p>You may specify a collection by defining a <code>collection</code> property on your model:</p>
+<pre><code class="php">class Post extends ActiveRecord {
+
+    protected $collection = 'posts';
+
+}
+</code></pre>
+
+<p>Mongolid will also assume each collection has a primary key attribute named <code>_id</code>, since MongoDB requires an <code>_id</code> for every single document. The <code>_id</code> attribute can be of any type. The default type for this attribute is <code>ObjectId</code>. <a href="https://docs.mongodb.org/manual/reference/method/ObjectId/">Learn more about the MongoId</a>.</p>
+<blockquote>
+<p><strong>Note:</strong> Mongolid will automatically convert strings in ObjectId format (For example: &ldquo;4af9f23d8ead0e1d32000000&rdquo;) to <code>ObjectId</code> when querying or saving an object.</p>
+</blockquote>
+<p>Once a model is defined, you are ready to start retrieving and creating documents in your collection.</p>
+<p><strong>Retrieving All Models</strong></p>
+<pre><code class="php">    $posts = Post::all();
+</code></pre>
+
+<p><strong>Retrieving A Document By Primary Key</strong></p>
+<pre><code class="php">    $post = Post::first('4af9f23d8ead0e1d32000000');
+
+    // or
+
+    $post = Post::first(new MongoDB\BSON\ObjectID('4af9f23d8ead0e1d32000000'));
+</code></pre>
+
+<p><strong>Retrieving One Document By attribute</strong></p>
+<pre><code class="php">    $user = Post::first(['title'=&gt;'How Monglid saved the day']);
+</code></pre>
+
+<p><strong>Retrieving Many Documents By attribute</strong></p>
+<pre><code class="php">    $posts = Post::where(['category'=&gt;'coding']);
+</code></pre>
+
+<p><strong>Querying Using Mongolid Models</strong></p>
+<pre><code class="php">    $posts = Post::where(['votes'=&gt;['$gt'=&gt;100]])-&gt;limit(10); // Mongolid\Cursor\Cursor
+
+    foreach ($posts as $post)
+    {
+        var_dump($post-&gt;title);
+    }
+</code></pre>
+
+<p><strong>Mongolid Count</strong></p>
+<pre><code class="php">    $count = Post::where(['votes'=&gt;['$gt'=&gt;100]])-&gt;count(); // integer
+</code></pre>
+
+<p>Pretty easy right?</p>
+<h2 id="monglid-cursor">Monglid Cursor<a class="headerlink" href="#monglid-cursor" title="Permanent link">&para;</a></h2>
+<p>In MongoDB, a cursor is used to iterate through the results of a database query. For example, to query the database and see all results:</p>
+<pre><code class="php">    $cursor = User::where(['kind'=&gt;'visitor']);
+</code></pre>
+
+<p>In the above example, the $cursor variable will be a <code>Mongolid\Cursor\Cursor</code>.</p>
+<p>The Mongolid&rsquo;s <code>Cursor</code> wraps the original <code>MongoDB\Driver\Cursor</code> object of the new MongoDB Driver in a way that you can build queries in a more fluent and easy way. Also the Mongolid&rsquo;s <code>Cursor</code> will make sure to return the instances of your model instead of stdClass or arrays.</p>
+<blockquote>
+<p><strong>Note:</strong> The <a href="http://php.net/manual/en/class.mongodb-driver-cursor.php">Cursor class of the new driver</a> is not as user friendly as the old one. Mongolid&rsquo;s cursor also make it as easy to use as the old one.</p>
+</blockquote>
+<p>The <code>Mongolid\Cursor\Cursor</code> object has alot of methods that helps you to iterate, refine and get information. For example:</p>
+<pre><code class="php">    $cursor = User::where(['kind'=&gt;'visitor']);
+
+    // Sorts the results by given fields. In the example bellow, it sorts by username DESC
+    $cursor-&gt;sort(['username'=&gt;-1]);
+
+    // Limits the number of results returned.
+    $cursor-&gt;limit(10);
+
+    // Skips a number of results. Good for pagination
+    $cursor-&gt;skip(20);
+
+    // Checks if the cursor is reading a valid result.
+    $cursor-&gt;valid();
+
+    // Returns the first result
+    $cursor-&gt;first();
+</code></pre>
+
+<p>You can also chain some methods:</p>
+<pre><code class="php">    $page = 2;
+
+    // In order to display 10 results per page
+    $cursor = User::all()-&gt;sort(['_id'=&gt;1])-&gt;skip(10 * $page)-&gt;limit(10);
+
+    // Then iterate through it
+    foreach($cursor as $user) {
+        // do something
+    }
+</code></pre>
+
+<h2 id="insert-update-delete">Insert, Update, Delete<a class="headerlink" href="#insert-update-delete" title="Permanent link">&para;</a></h2>
+<p>To create a new document in the database from a model, simply create a new model instance and call the <code>save</code> method.</p>
+<p><strong>Saving A New Model</strong></p>
+<pre><code class="php">    $post = new Post;
+
+    $post-&gt;title = 'Foo bar john doe';
+
+    $post-&gt;save();
+</code></pre>
+
+<blockquote>
+<p><strong>Note:</strong> Typically, your Mongolid models will have auto-generated <code>_id</code> keys. However, if you wish to specify your own keys, set the <code>_id</code> attribute.</p>
+</blockquote>
+<p>To update a model, you may retrieve it, change an attribute, and use the <code>save</code> method:</p>
+<p><strong>Updating A Retrieved Model</strong></p>
+<pre><code class="php">    $post = Post::first('4af9f23d8ead0e1d32000000');
+
+    $post-&gt;subject = 'technology';
+
+    $post-&gt;save();
+</code></pre>
+
+<p>To delete a model, simply call the <code>delete</code> method on the instance:</p>
+<p><strong>Deleting An Existing Model</strong></p>
+<pre><code class="php">    $post = Post::first('4af9f23d8ead0e1d32000000');
+
+    $post-&gt;delete();
+</code></pre>
+
+<h2 id="mass-assignment">Mass Assignment<a class="headerlink" href="#mass-assignment" title="Permanent link">&para;</a></h2>
+<p>If you are extending <code>Mongolid\ActiveRecord</code> you can set an array of attributes to the model using the <code>fill</code> method. These attributes are then assigned to the model via mass-assignment. This is convenient; however, can be a <strong>serious</strong> security concern when blindly passing user input into a model. If user input is blindly passed into a model, the user is free to modify <strong>any</strong> and <strong>all</strong> of the model&rsquo;s attributes. By default, all attributes are fillable.</p>
+<p><code>Mongolid\ActiveRecord</code> (and <code>Mongolid\Model\Attributes</code> trait) will use the <code>fillable</code> or <code>guarded</code> properties on your model.</p>
+<p>The <code>fillable</code> property specifies which attributes should be mass-assignable. This can be set at the class or instance level.</p>
+<p><strong>Defining Fillable Attributes On A Model</strong></p>
+<pre><code class="php">    class Post extends ActiveRecord {
+
+        protected $fillable = ['title', 'category', 'body'];
+
+    }
+</code></pre>
+
+<p>In this example, only the three listed attributes will be mass-assignable.</p>
+<p>The inverse of <code>fillable</code> is <code>guarded</code>, and serves as a &ldquo;black-list&rdquo; instead of a &ldquo;white-list&rdquo;:</p>
+<p><strong>Defining Guarded Attributes On A Model</strong></p>
+<pre><code class="php">    class Post extends ActiveRecord {
+
+        protected $guarded = ['_id', 'votes'];
+
+    }
+</code></pre>
+
+<p>In the example above, the <code>id</code> and <code>votes</code> attributes may <strong>not</strong> be mass assigned. All other attributes will be mass assignable.</p>
+<p>You can mass assign attributes using the <code>fill</code> method:</p>
+<pre><code class="php">    $post = new Post;
+    $post-&gt;fill(['title' =&gt; 'Bacon']);
+</code></pre>
+
+<h2 id="converting-to-arrays-json">Converting To Arrays / JSON<a class="headerlink" href="#converting-to-arrays-json" title="Permanent link">&para;</a></h2>
+<p>When building JSON APIs, you may often need to convert your models to arrays or JSON. So, Mongolid includes methods for doing so. To convert a model and its loaded relationship to an array, you may use the <code>toArray</code> method:</p>
+<p><strong>Converting A Model To An Array</strong></p>
+<pre><code class="php">    $user = User::with('roles')-&gt;first();
+
+    return $user-&gt;toArray();
+</code></pre>
+
+<p>Note that <a href="#cursor">cursors</a> can be converted to array too:</p>
+<pre><code class="php">    return User::all()-&gt;toArray();
+</code></pre>
+
+<p>To convert a model to JSON, you may use the <code>toJson</code> method:</p>
+<p><strong>Converting A Model To JSON</strong></p>
+<pre><code class="php">    return User::find(1)-&gt;toJson();
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../relationships/" class="btn btn-neutral float-right" title="Relationships">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/leroy-merlin-br/mongolid" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../relationships/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

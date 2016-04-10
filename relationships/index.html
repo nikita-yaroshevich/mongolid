@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Relationships - Mongolid ODM</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Relationships";
+    var mkdocs_page_input_path = "relationships.md";
+    var mkdocs_page_url = "/relationships/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Mongolid ODM</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../basics/">Basics</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Relationships</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#relationships">Relationships</a></li>
+                
+                    <li><a class="toctree-l4" href="#embeds-one">Embeds One</a></li>
+                
+                    <li><a class="toctree-l4" href="#embeds-many">Embeds many</a></li>
+                
+                    <li><a class="toctree-l4" href="#references-one">References One</a></li>
+                
+                    <li><a class="toctree-l4" href="#references-many">References Many</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../datamapper/">DataMapper Pattern</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../troubleshooting/">Troubleshooting</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../info/">Additional information</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Mongolid ODM</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Relationships</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/leroy-merlin-br/mongolid" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="relationships">Relationships<a class="headerlink" href="#relationships" title="Permanent link">&para;</a></h2>
+<p>Of course, your database collections are probably related to one another. For example, a blog post may have many comments, or an order could be related to the user who placed it. Mongolid makes managing and working with these relationships easy. MongoDB and Mongolid in short supports four types of relationships:</p>
+<ul>
+<li><a href="#embeds-one">Embeds One</a></li>
+<li><a href="#embeds-many">Embeds Many</a></li>
+<li><a href="#references-one">References One</a></li>
+<li><a href="#references-many">References Many</a></li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> MongoDB <strong>relationships doesn&rsquo;t works like in a Relational database</strong>. In MongoDB, data modeling decisions involve determining how to structure the documents to model the data effectively. The primary decision is whether to embed or to use references. See <a href="https://docs.mongodb.org/manual/core/data-model-design/">MongoDB - Data Modeling Decisions</a> for more information on this subject.</p>
+</blockquote>
+<h3 id="embeds-one">Embeds One<a class="headerlink" href="#embeds-one" title="Permanent link">&para;</a></h3>
+<p>Read <a href="https://docs.mongodb.org/manual/core/data-model-design/#embedded-data-models">MongoDB - Embedded Data Models</a> to learn more how to take advantage of document embedding.</p>
+<p>A Embeds One relationship is a very basic relation. For example, a <code>User</code> model might have one <code>Phone</code>. We can define this relation in Mongolid:</p>
+<p><strong>Defining A Embeds One Relation</strong></p>
+<pre><code class="php">    // models/Person.php
+    class Person extends ActiveRecord {
+
+        // This model is saved in the collection people
+        protected $collection = 'people';
+
+        // Method that will be used to access the phone
+        public function phone()
+        {
+            return $this-&gt;embedsOne('Phone', 'phone');
+        }
+
+    }
+
+    // models/Phone.php
+    class Phone extends ActiveRecord {
+
+        // This model will be embedded only
+        protected $collection = null;
+
+        public function getFullPhone()
+        {
+            return '+' . $this-&gt;regionCode . $this-&gt;number;
+        }
+
+    }
+</code></pre>
+
+<p>The first argument passed to the <code>embedsOne</code> method is the name of the related model. The second argument is in what attribute that object will be embedded. Once the relationship is defined, we may retrieve it using:</p>
+<pre><code class="php">    $phone = User::find('4af9f23d8ead0e1d32000000')-&gt;phone();
+</code></pre>
+
+<p>Which will translate to:</p>
+<ul>
+<li>Query for the user with the <code>_id</code> <em>&lsquo;4af9f23d8ead0e1d32000000&rsquo;</em></li>
+<li>Instantiate a <strong>Phone</strong> object with the attributes found in <em>&lsquo;phone&rsquo;</em> attribute of the user</li>
+<li>Return that object</li>
+</ul>
+<p>In order to embed a document to be used in a Embeds One relationship, simply fo the following:</p>
+<pre><code class="php">    // The object that will be embeded
+    $phoneObj = new Phone;
+    $phoneObj-&gt;regionCode = '55';
+    $phoneObj-&gt;number = '1532323232';
+
+    // The object that will contain the phone
+    $user = User::first('4af9f23d8ead0e1d32000000');
+
+    // This method will embed the $phoneObj into the phone attribute of the user
+    $user-&gt;embed('phone', $phoneObj);
+
+    // This is an alias to the method called above.
+    $user-&gt;embedToPhone($phoneObj);
+
+    // Not recomended, but also works
+    $user-&gt;phone = $phoneObj-&gt;attributes;
+
+    // Or (not recomended)
+    $user-&gt;phone = $phoneObj-&gt;toArray();
+
+    // Or even (not recomended)
+    $user-&gt;phone = [
+        'regionCode' =&gt; $phoneObj-&gt;regionCode,
+        'number' =&gt; $phoneObj-&gt;number
+    ];
+
+    $user-&gt;save();
+
+    // Now we can retrieve the object by calling
+    $user-&gt;phone(); // Will return a Phone object similar to $phoneObj
+</code></pre>
+
+<blockquote>
+<p><strong>Note:</strong> When using Mongolid models you will need to call the <code>save()</code> method after embeding or attaching objects. The changes will only persists after you call the &lsquo;save()&rsquo; method.</p>
+</blockquote>
+<p>It&rsquo;s recomended that you don&rsquo;t embed your models by setting the attribute directly. The <code>embed</code> method will include an <code>_id</code> to identify your embeded document and allow the usage of <code>unembed</code> and <code>embed</code> to update models.</p>
+<pre><code class="php">    $user-&gt;embed('phone', $phoneObj); // Now, $phoneObj have an _id
+
+    $phoneObj-&gt;regionCode = 77; // Update the region code
+
+    $user-&gt;embed($phoneObj); // Will update
+</code></pre>
+
+<h3 id="embeds-many">Embeds many<a class="headerlink" href="#embeds-many" title="Permanent link">&para;</a></h3>
+<p>An example of a Embeds Many relation is a blog post that &ldquo;has many&rdquo; comments. We can model this relation like so:</p>
+<pre><code class="php">    // models/Post.php
+    class Post extends ActiveRecord {
+
+        protected $collection = 'posts';
+
+        public function comments()
+        {
+            return $this-&gt;embedsMany('Comment', 'comments');
+        }
+
+    }
+
+    // models/Comment.php
+    class Comment extends ActiveRecord {
+
+        // This model will be embedded only
+        protected $collection = null;
+
+    }
+</code></pre>
+
+<p>Now we can access the post&rsquo;s comments <code>EmbeddedCursor</code> through the comments method:</p>
+<pre><code class="php">    $comments = Post::find('4af9f23d8ead0e1d32000000')-&gt;comments();
+</code></pre>
+
+<p>Now you can iterate and perform cursor operations in the <code>EmbeddedCursor</code> that is retrieved</p>
+<pre><code class="php">    foreach($comments-&gt;limit(10) as $comment)
+    {
+        // do something
+    }
+</code></pre>
+
+<p>In order to embed a document to be used in a Embeds Many relationship, you should use the <code>embed</code> method or the alias <code>embedTo&lt;Attribute&gt;</code>:</p>
+<pre><code class="php">    $commentA = new Comment;
+    $commentA-&gt;content = 'Cool feature bro!';
+
+    $commentB = new Comment;
+    $commentB-&gt;content = 'Awesome!';
+
+    $post = Post::first('4af9f23d8ead0e1d32000000');
+
+    // Both ways work
+    $post-&gt;embedToComments($commentA);
+    $post-&gt;embed('Comments', $commentB);
+
+    $post-&gt;save();
+</code></pre>
+
+<blockquote>
+<p><strong>Note:</strong> When using Mongolid models you will need to call the <code>save()</code> method after embeding or attaching objects. The changes will only persists after you call the &lsquo;save()&rsquo; method.</p>
+</blockquote>
+<p>The <code>embed</code> method will include an <code>_id</code> to identify your embeded document and allow the usage of <code>embed</code> and <code>unembed</code> to update or delete embeded documents:</p>
+<pre><code class="php">    $commentB-&gt;content = &quot;Pretty awesome!&quot;;
+
+    $post-&gt;unembed($commentA); // Removes 'Cool feature bro!'
+    $post-&gt;embed($commentB);   // Updates 'Awesome' to 'Pretty awesome'
+</code></pre>
+
+<h3 id="references-one">References One<a class="headerlink" href="#references-one" title="Permanent link">&para;</a></h3>
+<p>In Mongolid a reference is made by storing the <code>_id</code> of the referenced object. </p>
+<p>Referencing provides more flexibility than embedding; however, to resolve the references, client-side applications must issue follow-up queries. In other words, using references requires more roundtrips to the server.</p>
+<p>In general, use references when embedding would result in duplication of data and would not provide sufficient read performance advantages to outweigh the implications of the duplication. Read <a href="https://docs.mongodb.org/manual/tutorial/model-referenced-one-to-many-relationships-between-documents/">MongoDB - Relationships with Document References</a> to learn more how to take advantage of referencing in MongoDB.</p>
+<blockquote>
+<p><strong>Note:</strong> MongoDB <strong>relationships doesn&rsquo;t works like in a Relational database</strong>. In MongoDB, data modeling decisions involve determining how to structure the documents to model the data effectively. If you try to create references between documents like you would do in a relational database you will end up with <em>&ldquo;n+1 problem&rdquo;</em> and poor performance.</p>
+</blockquote>
+<p><strong>Defining A References One Relation</strong></p>
+<pre><code class="php">    // models/Post.php
+    class Post extends ActiveRecord {
+
+        protected $collection = 'posts';
+
+        public function author()
+        {
+            return $this-&gt;referencesOne('User', 'author');
+        }
+
+    }
+
+    // models/User.php
+    class User extends ActiveRecord {
+
+        protected $collection = 'users';
+
+    }
+</code></pre>
+
+<p>The first argument passed to the <code>referencesOne</code> method is the name of the related model, the second argument is the attribute where the referenced model <code>_id</code> will be stored. Once the relationship is defined, we may retrieve it using the following method:</p>
+<pre><code class="php">    $user = Post::find('4af9f23d8ead0e1d32000000')-&gt;author();
+</code></pre>
+
+<p>This statement will perform the following:</p>
+<ul>
+<li>Query for the post with the <code>_id</code> <em>&lsquo;4af9f23d8ead0e1d32000000&rsquo;</em></li>
+<li>Query for the user with the <code>_id</code> equals to the <em>author</em> attribute of the post</li>
+<li>Return that object</li>
+</ul>
+<p>In order to set a reference to a document, simply set the attribute used in the relationship to the reference&rsquo;s <code>_id</code> or use the attach method or it&rsquo;s alias. For example:</p>
+<pre><code class="php">    // The object that will be embeded
+    $userObj = new User;
+    $userObj-&gt;name = 'John';
+    $userObj-&gt;save() // This will populates the $userObj-&gt;_id
+
+    // The object that will contain the user
+    $post = Post::first('4af9f23d8ead0e1d32000000');
+
+    // This method will attach the $phoneObj _id into the phone attribute of the user
+    $post-&gt;attach('author', $userObj);
+
+    // This is an alias to the method called above.
+    $post-&gt;attachToAuthor($userObj);
+
+    // This will will also work
+    $post-&gt;author = $userObj-&gt;_id;
+
+    $post-&gt;save();
+
+    $post-&gt;author(); // Will return a User object
+</code></pre>
+
+<blockquote>
+<p><strong>Note:</strong> When using Mongolid models you will need to call the <code>save()</code> method after embedding or attaching objects. The changes will only persists after you call the &lsquo;save()&rsquo; method.</p>
+</blockquote>
+<h3 id="references-many">References Many<a class="headerlink" href="#references-many" title="Permanent link">&para;</a></h3>
+<p>In Mongolid a <em>References Many</em> is made by storing the <code>_id</code>s of the referenced objects.</p>
+<p>Referencing provides more flexibility than embedding; however, to resolve the references, client-side applications must issue follow-up queries. In other words, using references requires more roundtrips to the server.</p>
+<p>In general, use references when embedding would result in duplication of data and would not provide sufficient read performance advantages to outweigh the implications of the duplication. Read <a href="https://docs.mongodb.org/manual/tutorial/model-referenced-one-to-many-relationships-between-documents/">MongoDB - Relationships with Document References</a> to learn more how to take advantage of referencing in MongoDB.</p>
+<p><strong>Defining A References Many Relation</strong></p>
+<pre><code class="php">    // models/User.php
+    class User extends ActiveRecord {
+
+        protected $collection = 'users';
+
+        public function questions()
+        {
+            return $this-&gt;referencesMany('Question', 'questions');
+        }
+
+    }
+
+    // models/Question.php
+    class Question extends ActiveRecord {
+
+        protected $collection = 'questions';
+
+    }
+</code></pre>
+
+<p>The first argument passed to the <code>referencesMany</code> method is the name of the related model, the second argument is the attribute where the <code>_id</code>s will be stored. Once the relationship is defined, we may retrieve it using the following method:</p>
+<pre><code class="php">    $posts = User::find('4af9f23d8ead0e1d32000000')-&gt;posts();
+</code></pre>
+
+<p>This statement will perform the following:</p>
+<ul>
+<li>Query for the user with the <code>_id</code> <em>&lsquo;4af9f23d8ead0e1d32000000&rsquo;</em></li>
+<li>Query for all the posts with the <code>_id</code> in the user&rsquo;s <em>posts</em> attribute</li>
+<li>Return the <a href="#cursor"><code>Mongolid\Cursor\Cursor</code></a> with the related posts</li>
+</ul>
+<p>In order to set a reference to a document use the attach method or it&rsquo;s alias. For example:</p>
+<pre><code class="php">    $postA = new Post;
+    $postA-&gt;title = 'Nice post';
+
+    $postB = new Post;
+    $postB-&gt;title = 'Nicer post';
+
+    $user = User::first('4af9f23d8ead0e1d32000000');
+
+    // Both ways work
+    $user-&gt;attachToPosts($postA);
+    $user-&gt;attach('posts', $postB);
+
+    $user-&gt;save();
+</code></pre>
+
+<blockquote>
+<p><strong>Note:</strong> When using Mongolid models you will need to call the <code>save()</code> method after embedding or attaching objects. The changes will only persists after you call the &lsquo;save()&rsquo; method.</p>
+</blockquote>
+<p>You can use <code>dettach</code> method with the referenced object or it&rsquo;s <code>_id</code> in order to remove a single reference.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../datamapper/" class="btn btn-neutral float-right" title="DataMapper Pattern">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../basics/" class="btn btn-neutral" title="Basics"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/leroy-merlin-br/mongolid" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../basics/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../datamapper/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
