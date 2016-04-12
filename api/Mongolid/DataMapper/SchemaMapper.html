@@ -80,9 +80,11 @@
 </p>
 
             <div class="description">
-            <p>The SchemaMapper will map an array of data to an Schema object. When
-instantiating a SchemaMapper you should provide a Schema. When calling 'map'
-the Schema provided will be used to format the data to the correct format.</p>                    </div>
+            <p>The SchemaMapper will map an object or an array of data to an Schema object.</p>            <p>When instantiating a SchemaMapper you should provide a Schema. When calling
+'map' the Schema provided will be used to format the data to the correct
+format.</p>
+
+<p>This class is meant to do the oposite of the EntityAssembler</p>        </div>
     
     
     
@@ -123,7 +125,7 @@ the Schema provided will be used to format the data to the correct format.</p>  
                 </div>
                 <div class="col-md-8 type">
                     <a href="#method_map">map</a>(
-    array $data)
+    array|object $data)
                                             <p>Maps the input $data to the schema specified in the $schema property</p>                </div>
                 <div class="col-md-2"></div>
             </div>
@@ -147,7 +149,7 @@ the Schema provided will be used to format the data to the correct format.</p>  
             <div id="method-details">
                     <div class="method-item">
                     <h3 id="method___construct">
-        <div class="location">at line         line 32</div>
+        <div class="location">at line         line 35</div>
         <code>                    
     
     <strong>__construct</strong>(
@@ -175,11 +177,11 @@ the Schema provided will be used to format the data to the correct format.</p>  
             </div>
                     <div class="method-item">
                     <h3 id="method_map">
-        <div class="location">at line         line 44</div>
+        <div class="location">at line         line 47</div>
         <code>                    
     array
     <strong>map</strong>(
-    array $data)</code>
+    array|object $data)</code>
     </h3>
     <div class="details">
                     <div class="method-description">
@@ -190,9 +192,9 @@ the Schema provided will be used to format the data to the correct format.</p>  
                     <table class="table table-condensed">
                     <tr>
                 <td>
-    array</td>
+    array|object</td>
                 <td>$data</td>
-                <td>Array of field that should be mapped to $this->schema specifications.</td>
+                <td>Array or object with the fields that should be mapped to $this->schema specifications.</td>
             </tr>
             </table>
 
@@ -215,7 +217,7 @@ the Schema provided will be used to format the data to the correct format.</p>  
             </div>
                     <div class="method-item">
                     <h3 id="method_parseField">
-        <div class="location">at line         line 78</div>
+        <div class="location">at line         line 82</div>
         <code>                    
     mixed
     <strong>parseField</strong>(
