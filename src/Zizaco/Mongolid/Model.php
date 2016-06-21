@@ -668,7 +668,7 @@ class Model
      */
     protected function referencesMany($model, $field, $cachable = true)
     {
-        $ref_ids = $this->$field;
+        $ref_ids = $this->getAttribute($field);
 
         if (! isset($ref_ids[0])) {
             return [];
